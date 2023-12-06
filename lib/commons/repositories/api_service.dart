@@ -4,7 +4,7 @@ import 'package:pokedex_flutter/commons/models/pokemon.dart';
 import 'package:pokedex_flutter/commons/repositories/constants.dart';
 
 class ApiService {
-  Future<PokemonModel?> getPokemon() async {
+  Future<List<PokemonModel>?> getPokemon() async {
     try {
       var url = Uri.parse(ApiConstants.allPokemonUrl);
       var response = await http.get(url);

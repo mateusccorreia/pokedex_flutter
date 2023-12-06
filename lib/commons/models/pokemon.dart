@@ -1,8 +1,8 @@
 import 'dart:convert';
 
-PokemonModel pokemonModelFromJson(String str) => PokemonModel.fromJson(json.decode(str));
+List<PokemonModel> pokemonModelFromJson(String str) => List<PokemonModel>.from(json.decode(str));
 
-String pokemonModelToJson(PokemonModel data) => json.encode(data.toJson());
+String pokemonModelToJson(List<PokemonModel> data) => json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
 
 class PokemonModel {
   int id;
