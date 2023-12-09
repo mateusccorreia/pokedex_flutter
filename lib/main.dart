@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pokedex_flutter/commons/repositories/api_service.dart';
 import 'package:pokedex_flutter/features/home/container/home_container.dart';
 
 void main() {
@@ -16,7 +17,9 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.red),
         useMaterial3: true,
       ),
-      home: const HomeContainer(),
+      home: HomeContainer(
+        repository: ApiService(),
+      ),
     );
   }
 }

@@ -2,12 +2,24 @@ import 'package:flutter/material.dart';
 import 'package:pokedex_flutter/commons/models/pokemon.dart';
 import 'package:pokedex_flutter/commons/repositories/api_service.dart';
 
-class HomePage extends StatelessWidget {
-  HomePage({super.key, required this.pokemonList});
+class HomePage extends StatefulWidget {
+  const HomePage({super.key, required this.pokemonList});
   final List<PokemonModel?> pokemonList;
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
   final pokemon = ApiService();
 
   @override
+  void initState() {
+    super.initState();
+
+    pokemon.getPokemon();
+  }
+
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -15,7 +27,7 @@ class HomePage extends StatelessWidget {
       ),
       backgroundColor: Colors.redAccent,
       body: ListView.builder(
-          itemCount: pokemonList.length,
+          itemCount: pokemon.getPokemon().,
           itemBuilder: (context, index) {
             return Card(
               child: Padding(
@@ -23,9 +35,10 @@ class HomePage extends StatelessWidget {
                   child: Column(
                     children: [
                       Row(
-                        children: [Text(pokemonList.name)],
+                        children: [Text(pokemonList.id)],
                       )
                     ],
+
                   )),
             );
           }),

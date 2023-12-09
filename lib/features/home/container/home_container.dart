@@ -6,12 +6,13 @@ import 'package:pokedex_flutter/features/home/pages/home_page.dart';
 import 'package:pokedex_flutter/commons/repositories/api_service.dart';
 
 class HomeContainer extends StatelessWidget {
-  const HomeContainer({super.key});
+  const HomeContainer({super.key, required this.repository});
+  final ApiService repository;
 
   @override
   Widget build(BuildContext context) {
     return FutureBuilder<List<PokemonModel>?>(
-        future: ApiService().getPokemon(),
+        future: repository.getPokemon(),
         builder: (BuildContext context, AsyncSnapshot<List<PokemonModel>?> snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
             return const HomeLoading();
