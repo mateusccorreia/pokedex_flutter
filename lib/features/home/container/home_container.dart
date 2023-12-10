@@ -3,7 +3,7 @@ import 'package:pokedex_flutter/commons/models/pokemon.dart';
 import 'package:pokedex_flutter/features/home/pages/home_error.dart';
 import 'package:pokedex_flutter/features/home/pages/home_loading.dart';
 import 'package:pokedex_flutter/features/home/pages/home_page.dart';
-import 'package:pokedex_flutter/commons/repositories/api_service.dart';
+import 'package:pokedex_flutter/commons/repositories/pokemon_repository.dart';
 
 class HomeContainer extends StatelessWidget {
   const HomeContainer({super.key, required this.repository});

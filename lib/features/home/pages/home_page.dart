@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pokedex_flutter/commons/models/pokemon.dart';
-import 'package:pokedex_flutter/commons/repositories/api_service.dart';
+import 'package:pokedex_flutter/commons/repositories/pokemon_repository.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key, required this.pokemonList});

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pokedex_flutter/commons/repositories/api_service.dart';
+import 'package:pokedex_flutter/commons/repositories/pokemon_repository.dart';
 import 'package:pokedex_flutter/features/home/container/home_container.dart';
 
 void main() {
