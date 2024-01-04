@@ -17,10 +17,11 @@ class PokemonRepository implements IPokemonRepository {
     try {
       var url = ApiConstants.allPokemonUrl;
       final response = await dio.get(url);
+      final json = jsonDecode(response.data) as Map<String, dynamic>;
 
       if (response.statusCode == 200) {
         // return pokemonModelFromJson(response.data);
-        final json = jsonDecode(response.data);
+        // final json = jsonDecode(response.data);
       } else {
         log('HTTP request failed with status: ${response.statusCode}');
         log('Response body: ${response.data}');
