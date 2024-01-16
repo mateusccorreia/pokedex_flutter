@@ -18,10 +18,10 @@ class PokemonRepository implements IPokemonRepository {
       var url = ApiConstants.allPokemonUrl;
       final response = await dio.get(url);
       final json = jsonDecode(response.data) as Map<String, dynamic>;
-      final list = json['pokemon'] as List<Map<String, dynamic>>;
+      final list = json['pokemon'] as List<dynamic>;
       return list.map((e) => PokemonModel.fromJson(e)).toList();
     } catch (e) {
-      throw Failure(message: 'Não foi possível carregar os dados');
+      throw Failure(message: 'Não foi possível carregar os dados. Erro: $e');
     }
   }
 }

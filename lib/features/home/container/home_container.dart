@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pokedex_flutter/commons/models/pokemon.dart';
+import 'package:pokedex_flutter/error/failure.dart';
 import 'package:pokedex_flutter/features/home/pages/home_error.dart';
 import 'package:pokedex_flutter/features/home/pages/home_loading.dart';
 import 'package:pokedex_flutter/features/home/pages/home_page.dart';
@@ -7,7 +8,7 @@ import 'package:pokedex_flutter/commons/repositories/pokemon_repository.dart';
 
 class HomeContainer extends StatelessWidget {
   const HomeContainer({super.key, required this.repository});
-  final ApiService repository;
+  final IPokemonRepository repository;
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +22,9 @@ class HomeContainer extends StatelessWidget {
             return HomePage(pokemonList: snapshot.data!);
           }
           if (snapshot.hasError) {
-            return HomeError(error: snapshot.hasError.toString());
+            return HomeError(
+              error: (snapshot.hasError as Failure).message!,
+            );
           }
 
           return Container();
